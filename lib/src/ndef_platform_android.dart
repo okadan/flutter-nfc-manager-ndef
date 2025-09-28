@@ -1,10 +1,8 @@
-import 'package:flutter/foundation.dart';
-import 'package:ndef_record/ndef_record.dart';
+import 'package:nfc_manager/ndef_record.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import 'package:nfc_manager/nfc_manager_android.dart';
 import 'package:nfc_manager_ndef/src/ndef.dart';
 
-@visibleForTesting
 final class NdefPlatformAndroid implements Ndef {
   const NdefPlatformAndroid._(this._tech);
 
@@ -25,8 +23,10 @@ final class NdefPlatformAndroid implements Ndef {
   NdefMessage? get cachedMessage => _tech.cachedNdefMessage;
 
   @override
-  Map<String, dynamic> get additionalData =>
-      {'canMakeReadOnly': _tech.canMakeReadOnly, 'type': _tech.type};
+  Map<String, dynamic> get additionalData => {
+    'canMakeReadOnly': _tech.canMakeReadOnly,
+    'type': _tech.type,
+  };
 
   @override
   Future<NdefMessage?> read() {

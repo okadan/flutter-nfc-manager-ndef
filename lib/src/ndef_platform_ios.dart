@@ -1,22 +1,20 @@
-import 'package:flutter/foundation.dart';
-import 'package:ndef_record/ndef_record.dart';
+import 'package:nfc_manager/ndef_record.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import 'package:nfc_manager/nfc_manager_ios.dart';
 import 'package:nfc_manager_ndef/src/ndef.dart';
 
-@visibleForTesting
-final class NdefPlatformIOS implements Ndef {
-  const NdefPlatformIOS._(this._tech);
+final class NdefPlatformIos implements Ndef {
+  const NdefPlatformIos._(this._tech);
 
-  final NdefIOS _tech;
+  final NdefIos _tech;
 
-  static NdefPlatformIOS? from(NfcTag tag) {
-    final tech = NdefIOS.from(tag);
-    return tech == null ? null : NdefPlatformIOS._(tech);
+  static NdefPlatformIos? from(NfcTag tag) {
+    final tech = NdefIos.from(tag);
+    return tech == null ? null : NdefPlatformIos._(tech);
   }
 
   @override
-  bool get isWritable => _tech.status == NdefStatusIOS.readWrite;
+  bool get isWritable => _tech.status == NdefStatusIos.readWrite;
 
   @override
   int get maxSize => _tech.capacity;

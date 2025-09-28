@@ -1,22 +1,16 @@
 name: nfc_manager_ndef
-description: A Flutter package that provides the abstraction of the NDEF features of the nfc_manager plugin.
-version: 1.0.0-dev
+description: A Flutter package providing an NDEF abstraction built on top of `nfc_manager`.
+version: 1.1.0
 repository: https://github.com/okadan/flutter-nfc-manager-ndef
-publish_to: none # TODO: remove this line
 
 environment:
-  sdk: ^3.2.3
-  flutter: '>=3.3.0'
+  sdk: ^3.9.2
+  flutter: ">=3.3.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  ndef_record:
-    git: https://github.com/okadan/dart-ndef-record
-  nfc_manager:
-    git:
-      url: https://github.com/okadan/flutter-nfc-manager
-      ref: v4.0.0
+  nfc_manager: ^4.1.0
 
 dev_dependencies:
-  flutter_lints:
+  flutter_lints: ^5.0.0

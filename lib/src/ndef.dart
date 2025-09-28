@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
-import 'package:ndef_record/ndef_record.dart';
+import 'package:nfc_manager/ndef_record.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import 'package:nfc_manager_ndef/src/ndef_platform_android.dart';
 import 'package:nfc_manager_ndef/src/ndef_platform_ios.dart';
 
-/// The class providing access to NDEF operations.
+/// Provides access to NDEF operations.
 ///
 /// Acquire an instance using [from(NfcTag)].
 abstract class Ndef {
@@ -13,10 +13,8 @@ abstract class Ndef {
   /// Returns null if the tag is not compatible.
   static Ndef? from(NfcTag tag) {
     return switch (defaultTargetPlatform) {
-      // ignore: invalid_use_of_visible_for_testing_member
       TargetPlatform.android => NdefPlatformAndroid.from(tag),
-      // ignore: invalid_use_of_visible_for_testing_member
-      TargetPlatform.iOS => NdefPlatformIOS.from(tag),
+      TargetPlatform.iOS => NdefPlatformIos.from(tag),
       _ => null,
     };
   }
